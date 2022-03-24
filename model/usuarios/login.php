@@ -17,7 +17,7 @@
         header("location:../../view/inicio.php");
         // echo "estas dentro";
     }else{
-        $_SESSION['logeoMal']=1;
+        $_SESSION['logueoMal']=1;
         header("location:../../index.php");
         // echo "no entras";
     }

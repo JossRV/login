@@ -19,11 +19,14 @@
             <div class="col"></div>
             <div class="col">
                 <h2 >Login con php y mysql</h2>
-                <img src="public/img/usuario.png" alt="icon" class="mt-5 mb-5" style="width:60%">
+                <img src="public/img/usuario (2).png" alt="icon" class="mt-4 mb-4" style="width:60%">
                 <form action="./model/usuarios/login.php" method="post">
-                    <input type="text" class="form-control mt-3" name="usuario" placeholder="cliente">
-                    <input type="password" class="form-control mt-3" name="password" placeholder="contraseña">
-                    <button class="btn btn-outline-dark container-fluid mt-3" >Iniciar sesion</button>
+                    <label for="" class="form-label">Usuario</label>
+                    <input type="text" class="form-control mb-3" name="usuario" required>
+                    <label for="" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" name="password" required>
+                    <button class="btn btn-outline-info container-fluid mt-4 mb-3" >Iniciar sesion</button>
+                    <a href="view/registrar_usuario.php" class="link-info">Crear nuevo usuario</a>
                 </form>
             </div>
             <div class="col"></div>
@@ -33,7 +36,7 @@
 </html>
 <?php 
 
-    if(isset($_SESSION['logeoMal'])==1){
+    if(isset($_SESSION['logueoMal'])==1){
         echo ' 
             <script>
                 swal({
@@ -44,7 +47,20 @@
                 });
             </script>
         ';
-        unset($_SESSION['logeoMal']);
+        unset($_SESSION['logueoMal']);
+    }
+    if(isset($_SESSION['registro'])==1){
+        echo ' 
+            <script>
+                swal({
+                    title: "Registrado!!",
+                    text: "puede inicar sesion",
+                    icon: "success",
+                    button: "Aceptar"
+                });
+            </script>
+        ';
+        unset($_SESSION['registro']);
     }
 
 ?>

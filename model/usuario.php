@@ -23,6 +23,14 @@
                 return $th->getMessage();
             }   
         }
+        public function registrarUsuario($datos){
+            $con = new conexion();
+            $conexion = $con->conectar();
+            $sql="INSERT INTO t_usuarios(usuario,password,nombre,apellido_paterno,apellido_materno)
+                  VALUES ('$datos[0]','$datos[1]','$datos[2]','$datos[3]','$datos[4]')";
+            $resultado=mysqli_query($conexion,$sql);
+            return $resultado;
+        }
     }
 
 ?>
