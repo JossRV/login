@@ -10,8 +10,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <?php require_once "app/dependencias.php" ?>
+    <?php 
+    require_once "app/config.php";
+    require_once "app/dependencias.php";
+    ?>  
+
+    <title><?=TITULO_PAGINA ?></title>
 </head>
 <body>
     <div class="container text-center">
@@ -61,6 +65,19 @@
             </script>
         ';
         unset($_SESSION['registro']);
+    }
+    if(isset($_SESSION['cierre'])==1){
+        echo ' 
+            <script>
+                swal({
+                    title: "Session Finalizada!!",
+                    text: "nos vemos en el siguiente inicio",
+                    icon: "success",
+                    button: "Aceptar"
+                });
+            </script>
+        ';
+        unset($_SESSION['cierre']);
     }
 
 ?>
