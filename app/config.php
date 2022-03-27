@@ -6,6 +6,7 @@
     define('DEP_CSS',SERVIDOR."packages/css/");//son para dependencias css
     define('DEP_SCRIPT',SERVIDOR."packages/js/");//son para dependencias js
     define('DEP_FONTAWESOME',SERVIDOR."packages/fontawesome/");//dependencias fontawesome
+    define('DEP_FONTAWESOME6',SERVIDOR."packages/fontawesome_pro6/");
 
     define('error',"view/error/error");
 
