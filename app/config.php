@@ -7,12 +7,13 @@
     define('DEP_SCRIPT',SERVIDOR."packages/js/");//son para dependencias js
     define('DEP_FONTAWESOME',SERVIDOR."packages/fontawesome/");//dependencias fontawesome
     define('DEP_FONTAWESOME6',SERVIDOR."packages/fontawesome_pro6/");
+    define('CONTROL',SERVIDOR."controller/");
 
-    define('error',"view/error/error");
+    // define('error',"view/error/error");
 
-    define("direccion",array(
-        'home'=>'view/inicio.php'
-    ));
+    // define("direccion",array(
+    //     'home'=>'view/inicio.php'
+    // ));
 
 
 ?>

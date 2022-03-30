@@ -8,12 +8,11 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <?php require "../app/config.php" ?>
     <?php require "../app/dependencias.php"?>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=TITULO_PAGINA ?></title>
     <!-- <link rel="stylesheet" href="../packages/fontawesome/css/all.min.css"> -->
@@ -27,16 +26,28 @@
             <div class="col mt-4 text-center">
                 <h3>Tareas <img src="../public/img/lista-de-tareas.png" class="" alt="" style="width:3%"></h3>
                 <a class="btn btn-outline-success" data-bs-toggle="collapse" href="#insertarTarea">
-                    Agregar Tarea Nueva
+                    <i class="fa-duotone fa-circle-plus"></i> Agregar Tarea Nueva
                 </a>
             </div>
             <div class="col-3"></div>
             <?php include "../view/tareas/insertar_tarea.php" ?>
         </div>
         <?php 
+            $verde = "#96D9AC";
+            $azul = "#28DAFD";
+            $rojo = "#EE5C76";
             foreach ($verTar as $key):
         ?>
-        <div class="row mt-3 mb-3" style="border:solid; border-top-left-radius: 20px; border-bottom-right-radius: 20px;">
+        <div class="row mt-3 mb-3" style="border:solid; border-top-left-radius: 20px; border-bottom-right-radius: 20px; 
+        background: <?php
+            if($key['tupla']==1){
+                echo $azul;
+            }else if($key['tupla']==2){
+                echo $rojo;
+            }else if($key['tupla']==3){
+                echo $verde;
+            }
+        ?>">
             <div class="col-9 py-4">
                 <!-- informacion xd -->
                 <p>
@@ -57,23 +68,24 @@
                 <!-- botones -->
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-outline-warning container-fluid" data-bs-toggle="collapse" href="#editarTarea">
+                        <a class="btn btn-warning container-fluid" data-bs-toggle="modal" data-bs-target="#editarTarea" onclick="verDatos(<?=$key['id_tarea']?>)">
                             Editar tarea 
-                            <i class="fa-solid fa-pen-to-square"></i>
+                            <i class="fa-duotone fa-pen-to-square"></i>
                         </a>
+                        <?php include "../view/tareas/editar_tarea.php" ?>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col">
-                        <a href="../model/tareas/eliminar_tarea.php?id=<?=$key['id_tarea']?>" class="btn btn-outline-danger container-fluid" style="text-decoration:none;">
+                        <a href="../model/tareas/eliminar_tarea.php?id=<?=$key['id_tarea']?>" class="btn btn-danger container-fluid" style="text-decoration:none;">
                             Eliminar tarea
-                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-duotone fa-trash"></i>
                         </a>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col">
-                        <a href="" class="btn btn-outline-success container-fluid" style="text-decoration:none;">
+                        <a href="../model/tareas/tupla_tardia.php?id=<?=$key['id_tarea']?>" class="btn btn-success container-fluid" style="text-decoration:none;">
                             Finalizar tarea 
                             <i class="fa-duotone fa-check-double"></i>
                         </a>
@@ -84,14 +96,18 @@
         <?php 
             endforeach;
         ?>
-        <div class="row">
-            <div class="col">
-                <?php include "../view/tareas/actualizar_tarea.php" ?>
-            </div>
-        </div>
     </div>
 </body>
 </html>
+<script>
+    // function verDatos(id,nombre_tarea,fecha_fin,hora_fin,comentario){
+    //     $('idT').val(id);
+    //     $('#nombreT').val(nombre_tarea);
+    //     $('#fechaF').val(fecha_fin);
+    //     $('#horaF').val(hora_fin);
+    //     $('#coment').val(comentario);
+    // }
+</script>
 <?php 
 
 // alerta de inicio de sesion

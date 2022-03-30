@@ -9,3 +9,4 @@
 <script src="<?=DEP_SCRIPT?>sweetalert.js"></script>
 <!-- <script src="<?=DEP_FONTAWESOME?>js/all.min.js"></script> -->
 <script src="<?=DEP_FONTAWESOME6?>js/all.min.js"></script>
+<script src="<?=CONTROL?>tareas/tareas.js"></script>

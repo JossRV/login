@@ -9,12 +9,14 @@
     $fecha_final = $_POST['fechaF'];
     $hora_final = $_POST['horaF'];
     $comentario = $_POST['coment'];
+    $tupla = 1;
 
     $datos = array(
         $nombre_tarea,
         $fecha_final,
         $hora_final,
-        $comentario
+        $comentario,
+        $tupla
     );
 
     if($t->insertarTarea($datos)==1){
