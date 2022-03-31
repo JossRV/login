@@ -62,9 +62,17 @@
                                             <input type="text" class="form-control" id="nombreT" name="nombreT">
                                         </div>
                                         <div class="input-group mt-3">
+                                                <label class="input-group-text">Fecha que inicia tarea</label>
+                                                <input type="date" class="form-control" id="fechaI" name="fechaI">
+                                        </div>
+                                        <div class="input-group mt-3">
                                                 <label class="input-group-text">Fecha que finaliza tarea</label>
                                                 <input type="date" class="form-control" id="fechaF" name="fechaF">
-                                            </div>
+                                        </div>
+                                        <div class="input-group mt-3">
+                                            <label class="input-group-text">Hora que inicia tarea</label>
+                                            <input type="time" class="form-control" id="horaI" name="horaI">
+                                        </div>
                                         <div class="input-group mt-3">
                                             <label class="input-group-text">Hora que finaliza tarea</label>
                                             <input type="time" class="form-control" id="horaF" name="horaF">

@@ -13,13 +13,13 @@
     $result=mysqli_query($conectado,$sql);
     $verTar=mysqli_fetch_array($result);
 
-    $tupla=0;
+    $tupla=1;
     $fecha_fin = $verTar['fecha_fin'];
     $hora_fin = $verTar['hora_fin'];
     $fecha_momento = date('Y-m-d'); //fecha actual 
-    $hora_momento = date('H:i:s'); //horaa actual
+    $hora_momento = date('H:i:s'); //hora actual
 
-    echo $idTupla;
+    // echo $idTupla;
     // echo "<br>";
     // echo $fecha_fin;
     // echo "<br>";
@@ -30,17 +30,23 @@
     // echo $hora_momento;
     // echo "<br>";
 
-    if($fecha_momento < $fecha_fin){
+    if($fecha_momento > $fecha_fin){
+        if($hora_momento <= $hora_fin || $hora_momento >= $hora_fin){
+            $tupla = 2;
+        }
+    }else if($fecha_momento <= $fecha_fin){
         if($hora_momento <= $hora_fin || $hora_momento >= $hora_fin){
             $tupla = 3;
         }
-    }else if($fecha_momento >= $fecha_fin){
-        if($hora_momento <= $hora_fin){
-            $tupla = 3;
-        }else if($hora_momento >= $hora_fin){
-            $tupla = 2;
-        }
     }
+    // if($fecha_actual >= $fecha_final){
+    //     if($hora_actual <= $hora_final){
+    //         $tupla = 1;
+    //     }
+    //     else if($hora_actual >= $hora_final){
+    //         $tupla = 2;
+    //     }
+    // }
     // echo $tupla;
     $datos = array(
         $tupla,

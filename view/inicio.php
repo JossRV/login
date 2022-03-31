@@ -66,31 +66,99 @@
             </div>
             <div class="col-3 align-self-center text-center">
                 <!-- botones -->
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-warning container-fluid" data-bs-toggle="modal" data-bs-target="#editarTarea" onclick="verDatos(<?=$key['id_tarea']?>)">
-                            Editar tarea 
-                            <i class="fa-duotone fa-pen-to-square"></i>
-                        </a>
-                        <?php include "../view/tareas/editar_tarea.php" ?>
+                <?php 
+                    if($key['tupla']==1):
+                ?>
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-warning container-fluid" data-bs-toggle="modal" data-bs-target="#editarTarea" onclick="verDatos(<?=$key['id_tarea']?>)">
+                                Editar tarea 
+                                <i class="fa-duotone fa-pen-to-square"></i>
+                            </a>
+                            <?php include "../view/tareas/editar_tarea.php" ?>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <a href="../model/tareas/eliminar_tarea.php?id=<?=$key['id_tarea']?>" class="btn btn-danger container-fluid" style="text-decoration:none;">
-                            Eliminar tarea
-                            <i class="fa-duotone fa-trash"></i>
-                        </a>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <a href="../model/tareas/eliminar_tarea.php?id=<?=$key['id_tarea']?>" class="btn btn-danger container-fluid" style="text-decoration:none;">
+                                Eliminar tarea
+                                <i class="fa-duotone fa-trash"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <a href="../model/tareas/tupla_tardia.php?id=<?=$key['id_tarea']?>" class="btn btn-success container-fluid" style="text-decoration:none;">
-                            Finalizar tarea 
-                            <i class="fa-duotone fa-check-double"></i>
-                        </a>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <a href="../model/tareas/tupla_tardia.php?id=<?=$key['id_tarea']?>" class="btn btn-success container-fluid" style="text-decoration:none;">
+                                Finalizar tarea 
+                                <i class="fa-duotone fa-check-double"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                <?php 
+                    endif;
+                ?>
+                <?php 
+                    if($key['tupla']==2):
+                ?>
+                    <div class="row">
+                        <div class="col">
+                            <!-- <a class="btn btn-warning container-fluid" data-bs-toggle="modal" data-bs-target="#editarTarea" onclick="verDatos(<?=$key['id_tarea']?>)" disabled>
+                                Editar tarea 
+                                <i class="fa-duotone fa-pen-to-square"></i>
+                            </a>
+                            <?php //include "../view/tareas/editar_tarea.php" ?> -->
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <a href="../model/tareas/eliminar_tarea.php?id=<?=$key['id_tarea']?>" class="btn btn-danger container-fluid" style="text-decoration:none;">
+                                Eliminar tarea
+                                <i class="fa-duotone fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <!-- <a href="../model/tareas/tupla_tardia.php?id=<?=$key['id_tarea']?>" class="btn btn-success container-fluid" style="text-decoration:none;" disabled>
+                                Finalizar tarea 
+                                <i class="fa-duotone fa-check-double"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                <?php 
+                    endif;
+                ?>
+                <?php 
+                    if($key['tupla']==3):
+                ?>
+                    <div class="row">
+                        <div class="col">
+                            <!-- <a class="btn btn-warning container-fluid" data-bs-toggle="modal" data-bs-target="#editarTarea" onclick="verDatos(<?=$key['id_tarea']?>)" disabled>
+                                Editar tarea 
+                                <i class="fa-duotone fa-pen-to-square"></i>
+                            </a>
+                            <?php //include "../view/tareas/editar_tarea.php" ?> -->
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <a href="../model/tareas/eliminar_tarea.php?id=<?=$key['id_tarea']?>" class="btn btn-danger container-fluid" style="text-decoration:none;">
+                                Eliminar tarea
+                                <i class="fa-duotone fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <!-- <a href="../model/tareas/tupla_tardia.php?id=<?=$key['id_tarea']?>" class="btn btn-success container-fluid" style="text-decoration:none;" disabled>
+                                Finalizar tarea 
+                                <i class="fa-duotone fa-check-double"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                <?php 
+                    endif;
+                ?>
             </div>
         </div>
         <?php 
@@ -142,7 +210,7 @@
             <script>
                 swal({
                     title: "No se pudo registar la tarea",
-                    icon: "success",
+                    icon: "error",
                     button: "Aceptar"
                 });
             </script>
@@ -164,11 +232,33 @@
             <script>
                 swal({
                     title: "No se pudo eliminar",
-                    icon: "success",
+                    icon: "error",
                     button: "Aceptar"
                 });
             </script>
         ';
         unset($_SESSION['tareasE']);
+    }else if(isset($_SESSION['tareasA'])=="actualizado"){
+        echo ' 
+            <script>
+                swal({
+                    title: "Se ha actualizado",
+                    icon: "success",
+                    button: "Aceptar"
+                });
+            </script>
+        ';
+        unset($_SESSION['tareasA']);
+    }else if(isset($_SESSION['tareasA'])=="noActualizado"){
+        echo ' 
+            <script>
+                swal({
+                    title: "No se pudo actualizar",
+                    icon: "error",
+                    button: "Aceptar"
+                });
+            </script>
+        ';
+        unset($_SESSION['tareasA']);
     }
 ?>

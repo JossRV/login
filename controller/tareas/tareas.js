@@ -9,7 +9,9 @@ function verDatos(idT){
             respuesta = jQuery.parseJSON(respuesta);
             $('#idT').val(respuesta['idTareas']);
             $('#nombreT').val(respuesta['nombreTarea']);
+            $('#fechaI').val(respuesta['fechaInicio']);
             $('#fechaF').val(respuesta['fechaFin']);
+            $('#horaI').val(respuesta['horaInicio']);
             $('#horaF').val(respuesta['horaFin']);
             $('#coment').val(respuesta['comentarios']);
         }
