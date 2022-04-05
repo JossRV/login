@@ -14,7 +14,7 @@
     require_once "app/dependencias.php";
     ?>  
 
-    <title><?=TITULO_PAGINA ?></title>
+    <title><?=TITULO_PAGINA?></title>
 </head>
 <body>
     <div class="container text-center">
@@ -25,10 +25,10 @@
                 <img src="public/img/usuario (2).png" alt="icon" class="mt-4 mb-4" style="width:60%">
                 <form action="./model/usuarios/login.php" method="post">
                     <label for="" class="form-label">Usuario</label>
-                    <input type="text" class="form-control mb-3" name="usuario" required>
+                    <input type="text" class="form-control mb-3" name="usuario" id="usuarioLog" required>
                     <label for="" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" name="password" required>
-                    <button class="btn btn-outline-info container-fluid mt-4 mb-3" >Iniciar sesion</button>
+                    <input type="password" class="form-control" name="password" id="passLog" required>
+                    <button class="btn btn-outline-info container-fluid mt-4 mb-3" id="inciaSession">Iniciar sesion</button>
                     <a href="view/registrar_usuario.php" class="link-info">Crear nuevo usuario</a>
                 </form>
             </div>

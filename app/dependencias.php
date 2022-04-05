@@ -10,3 +10,5 @@
 <!-- <script src="<?=DEP_FONTAWESOME?>js/all.min.js"></script> -->
 <script src="<?=DEP_FONTAWESOME6?>js/all.min.js"></script>
 <script src="<?=CONTROL?>tareas/tareas.js"></script>
+<script src="<?=CONTROL?>control_login.js"></script>
+<script src="<?=CONTROL?>control_registro.js"></script>
